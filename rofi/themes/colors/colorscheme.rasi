@@ -1,0 +1,7 @@
+* {
+	bg:		#202020;
+	fg:		#d0d0d0;
+	crit:		#920202;
+	accent:		#6c99ba;
+	success:	#5a913a;
+}

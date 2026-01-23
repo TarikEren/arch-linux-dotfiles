@@ -1,0 +1,56 @@
+@theme "/colors/colorscheme.rasi"
+
+* {
+	background-color: @bg;
+}
+
+window {
+	width: 25%;
+}
+
+element {
+	padding: 0.25em;
+}
+
+element-text {
+	text-color: @fg;
+	background-color: inherit;	
+}
+
+element-text selected {
+	text-color: @bg;
+}
+
+element selected {
+	background-color: @fg;
+}
+
+element-icon {
+	background-color: inherit;
+	margin: 0 0.5em 0 0;
+	size: 1em;
+}
+
+inputbar {
+	children: [prompt, entry];
+	border: 0 0 2px 0;
+	border-color: @accent;
+}
+
+prompt {
+	padding: 0.5em 0 0.5em 0.5em;
+}
+
+entry {
+	padding: 0.5em 0;
+}
+
+prompt, entry {
+	text-color: @fg;
+}
+
+listview {
+	columns: 1;
+	lines: 10;
+	padding: 0.5em;
+}

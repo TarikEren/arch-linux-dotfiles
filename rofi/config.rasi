@@ -1,0 +1,14 @@
+configuration {
+	font: 		"JetBrainsMono Nerd Font Medium 14";
+	show-icons: 	true;
+	display-drun:	"Application: ";
+	display-window:	"Window: ";
+	modi: 		"window,run,drun";
+	icon-theme: 	"Papirus";
+
+	margin:		0;
+	padding:	0;
+	spacing:	0;
+}
+
+@theme "~/.config/rofi/themes/theme.rasi"
