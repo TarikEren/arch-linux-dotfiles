@@ -1,15 +1,15 @@
 [{
-    "name": "top_bar",
-        "include": "modules/top.jsonc",
-        "position": "top",
-        "modules-left": [
-            "hyprland/workspaces"
-        ],
-        "modules-center": ["clock"],
-        "modules-right": [
-            // NOTE: In the installer, check for a bluetooth device and a battery
-            // "battery",
-            // "power-profiles-daemon"
+	"name": "top_bar",
+	"include": "modules/top.jsonc",
+	"position": "top",
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": ["clock"],
+	"modules-right": [
+	    // NOTE: In the installer, check for a bluetooth device and a battery
+	    "battery",
+	    "power-profiles-daemon",
             "custom/separator",
         "pulseaudio",
         "custom/separator",
