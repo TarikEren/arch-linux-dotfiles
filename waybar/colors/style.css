@@ -1,5 +1,8 @@
 @import "colors/style.css";
 
+@define-color bg 	#202020;
+@define-color fg 	#d0d0d0;
+@define-color crit	#920202;
 * {
 	border: none;
 	border-radius: 0px;

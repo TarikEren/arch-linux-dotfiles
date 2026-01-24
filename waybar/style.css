@@ -33,11 +33,11 @@ tooltip label {
 }
 
 #workspaces button.empty {
-    opacity: 0.5
+	opacity: 0.5
 }
 
 #workspaces button.active label {
-	background: @acc;
+	background: @fg;
 	color: @bg;
 	transition: all 0.3s ease-in-out;
 }
@@ -66,7 +66,7 @@ tooltip label {
 
 #tray {
 	padding: 0.5em 0.75em 0.5em 0;
-    font-size: 1.25em;
+	font-size: 1.25em;
 }
 
 #custom-menu {
@@ -79,5 +79,5 @@ tooltip label {
 }
 
 #network.linked, #network.ethernet, #network.wifi {
-	color: @success;
+	color: @fg;
 }
