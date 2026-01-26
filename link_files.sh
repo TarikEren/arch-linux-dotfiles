@@ -1,24 +1,66 @@
 #!/bin/bash
 
-target_dir=dummy
-declare -a folders = {
-[0]="btop"
-[1]="hypr"
-[2]="kitty"
-[3]="nvim"
-[4]="rofi"
-[5]="swaync"
+set -euo pipefail
+
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+DEFAULT_COLOR='\033[0m'
+
+CONFIG_DIRS=(btop hypr kitty nvim rofi waybar)
+CONFIG_FILES=(.zshrc .p10k.zsh)
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+log() {
+	local level=$1
+	local msg=$2
+	case "$1" in
+		1) printf '%b Info: %s%b\n' "$BLUE" "$msg" "$DEFAULT_COLOR" ;; # stdout
+		2) printf '%b Warn: %s%b\n' "$YELLOW" "$msg" "$DEFAULT_COLOR" >&2 ;; # stderr
+		3) printf '%b Error: %s%b\n' "$RED" "$msg" "$DEFAULT_COLOR" >&2 ;; # stderr
+		*) printf 'Log: %s\n' "$msg" ;;
+	esac
 }
 
-declare -a files = {
-[0]="vimrc"
-[1]="zshrc"
+check_config_files() {
+	local exit_flag=0
+	for dir in "${CONFIG_DIRS[@]}"; do
+		if [ ! -d "./$dir" ]; then
+			exit_flag=1
+			log 3 "Missing config directory: $dir. Please run 'git pull' to fix."
+		fi
+		if [ -d "$HOME/.config/$dir" ] || [ -L "$HOME/.config/$dir" ]; then
+			exit_flag=1
+			log 3 "Pre-existing config in: $HOME/.config/$dir. Please rename the directory and re-run the script."
+		fi
+	done
+	for file in "${CONFIG_FILES[@]}"; do
+		if [ ! -e "./$file" ]; then
+			exit_flag=1
+			log 3 "Missing config file: $file. Please run 'git pull' to fix."
+		fi
+		if [ -e "$HOME/$file" ] || [ -L "$HOME/$file" ]; then
+			exit_flag=1
+			log 3 "Pre-existing config in: $HOME/.config/$dir. Please rename the file and re-run the script."
+		fi
+	done
+	if [ "$exit_flag" -eq 1 ]; then
+		exit 1
+	fi
 }
 
-# TODO: Check if the folder or file to add exists in the target
-# directory. If so, don't link them and notify the user
-for entry in "$folders"
-do
-    echo "Directory to link: $entry"
-        ln -s $entry $target_dir
-done
+link_files() {
+	for dir in "${CONFIG_DIRS[@]}"; do
+		ln -s "$CURRENT_DIR/$dir" "$HOME/.config"
+	done
+	for file in "${CONFIG_FILES[@]}"; do
+		ln -s "$CURRENT_DIR/$file" "$HOME/"
+	done
+}
+
+if [ ! -d "$HOME/.config" ]; then
+	log 3 "Missing .config directory. System installation may be corrupt."
+	exit 1
+fi
+check_config_files
+link_files
