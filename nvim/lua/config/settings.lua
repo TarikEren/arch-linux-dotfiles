@@ -1,4 +1,5 @@
 vim.opt.number=true
+vim.opt.wrap=false
 vim.opt.relativenumber=true
 vim.opt.signcolumn='yes:1'
 vim.opt.showcmd = true
