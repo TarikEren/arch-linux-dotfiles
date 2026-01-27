@@ -30,6 +30,7 @@ if [[ -z "$connection_details" ]]; then
 	all_devices=$(nmcli -t -f DEVICE,TYPE,STATE device)
 	# Check if wifi devices are present
 	wlan_device=$(echo "$all_devices" | awk -F':' '{ printf "%s\n", $1 }' | grep -v "p2p-dev-" | grep "wlan[0-9]" | head -n1 )
+    echo "$wlan_device"
 	if [[ -z "$wlan_device" ]]; then
 		echo "No wifi devices are found"
 		notify-send "No wifi devices are found"
@@ -45,7 +46,7 @@ if [[ -z "$connection_details" ]]; then
 		printf "%s %s %s\n", lock, sym, $3}')
 		selection=$(echo -e "$toggle\n$prettified_menu" | rofi -dmenu -i -selected-row 1 -p "Wi-Fi SSID:")
 		if [ "$selection" == "$DISCONNECT" ]; then
-			nmcli connection down $connected_to | grep "successfully" & notify-send "Disconnected from $connected_to"
+			nmcli connection down "$connected_to" | grep "successfully" & notify-send "Disconnected from $connected_to"
 		elif [ "$selection" == "$ENABLE_WIFI" ]; then
 			nmcli radio wifi on
 		else 
@@ -84,7 +85,7 @@ else
 		printf "%s %s %s\n", lock, sym, $3}')
 		selection=$(echo -e "$DISCONNECT\n$toggle\n$prettified_menu" | rofi -dmenu -i -selected-row 1 -p "Wi-Fi SSID:")
 		if [ "$selection" == "$DISCONNECT" ]; then
-			nmcli connection down $connected_to | grep "successfully" & notify-send "Disconnected from $connected_to"
+			nmcli connection down "$connected_to" | grep "successfully" & notify-send "Disconnected from $connected_to"
 		elif [ "$selection" == "$DISABLE_WIFI" ]; then
 			nmcli radio wifi off
 		else 
@@ -105,9 +106,9 @@ else
 	elif [[ ! -z $(echo "$connector" | grep "enp[0-9]s[0-9]") ]]; then
 		echo "Ethernet detected"
 		connection_type="ethernet"
-		selection=$(echo "$DISCONNECT\n$connected_to")
+		selection=$(echo -e "$DISCONNECT\n$connected_to" | rofi -dmenu -i -selected-row 1 -p "")
 		if [ "$selection" == "$DISCONNECT" ]; then
-			nmcli connection down $connected_to
+			nmcli connection down "$connected_to"
 		else
 			exit 0
 		fi
