@@ -22,7 +22,7 @@ toggle="$DISABLE_WIFI"
 
 connection_details=$(nmcli | grep -i "connected to")
 if [[ -z "$connection_details" ]]; then
-	echo "Not connected"
+	echo "Not connected to wifi"
 	wifi_field=$(nmcli -fields WIFI g)
 	if [[ "$wifi_field" =~ "disabled" ]]; then
 		toggle="$ENABLE_WIFI"
@@ -106,7 +106,7 @@ else
 		echo "Ethernet detected"
 		connection_type="ethernet"
 		selection=$(echo "$DISCONNECT\n$connected_to")
-		if [ $selection == "$DISCONNECT" ]; then
+		if [ "$selection" == "$DISCONNECT" ]; then
 			nmcli connection down $connected_to
 		else
 			exit 0

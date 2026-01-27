@@ -84,8 +84,8 @@
 		"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
 		"tooltip-format-disconnected": "Disconnected",
 		"interval": 3,
-		"spacing": 1
-		// TODO: Add onclick for a wifi menu
+		"spacing": 1,
+		"on-click": "~/arch-linux-dotfiles/waybar/scripts/wifi-menu.sh"
 	},
 	"battery": {
         	    "bat": "BAT0",
