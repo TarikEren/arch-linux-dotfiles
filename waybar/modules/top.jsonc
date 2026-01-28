@@ -85,7 +85,7 @@
 		"tooltip-format-disconnected": "Disconnected",
 		"interval": 3,
 		"spacing": 1,
-		"on-click": "~/arch-linux-dotfiles/waybar/scripts/wifi-menu.sh"
+        "on-click": "kitty impala"
 	},
 	"battery": {
         	    "bat": "BAT0",
