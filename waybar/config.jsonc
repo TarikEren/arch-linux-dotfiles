@@ -24,7 +24,7 @@
 },
 {
     "name": "bottom_bar",
-    "include": "modules/bottom_no_nvidia.jsonc",
+    "include": "modules/bottom.jsonc",
     "position": "bottom",
     "modules-left": [
         "custom/menu"

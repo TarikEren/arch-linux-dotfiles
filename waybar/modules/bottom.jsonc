@@ -16,8 +16,8 @@
 	},
     "custom/menu": {
         "format": "󰍜 ",
-        "tooltip-format": "Super menu"
-        // TODO: Add scripts
+        "tooltip-format": "Super menu",
+        "on-click": "~/.config/scripts/super-menu.sh"
     },
 	"custom/separator": {
 		"format": " | ",
