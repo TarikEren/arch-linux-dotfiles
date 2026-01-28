@@ -1,0 +1,60 @@
+force_keyboard_focus = false    # Force keyboard focus to stay in Walker
+close_when_open = true          # Close if invoked while already open
+click_to_close = true           # Close when clicking outside content area
+selection_wrap = false          # Wrap list navigation at top/bottom
+disable_mouse = false           # Disable mouse on input and list
+debug = false                   # Enable debug output
+global_argument_delimiter = "#"     # Delimiter for passing arguments
+                                    # Example: firefox#https://example.com
+                                    # Part after # is passed as argument
+
+exact_search_prefix = "'"           # Prefix to disable fuzzy search
+                                    # Example: 'firefox will match exactly
+theme = "system-default"              # Theme name to use
+                               # Must exist in ~/.config/walker/themes/
+[shell]
+anchor_top = true
+anchor_bottom = true
+anchor_left = true
+anchor_right = true
+
+[placeholders]
+# Default placeholder for all providers
+"default" = { input = "Search", list = "No Results" }
+
+# Provider-specific placeholders
+"desktopapplications" = { input = "Launch App", list = "No Applications" }
+"files" = { input = "Browse Files", list = "No Files Found" }
+"calc" = { input = "Calculate", list = "Enter Expression" }
+"runner" = { input = "Run Command", list = "No Commands" }
+"websearch" = { input = "Search Web", list = "" }
+"clipboard" = { input = "Clipboard", list = "Clipboard Empty" }
+"symbols" = { input = "Symbol", list = "No Symbols" }
+"todo" = { input = "Todo", list = "No Todos" }
+
+# For custom menus
+"menus:mymenu" = { input = "My Menu", list = "No Items" }
+
+[keybinds]
+close = ["Escape"]
+next = ["Down"]
+previous = ["Up"]
+toggle_exact = ["ctrl e"]           # Toggle exact search mode
+resume_last_query = ["ctrl r"]      # Resume last query (service mode)
+quick_activate = ["F1", "F2", "F3", "F4"]  # Quick activation keys
+
+[providers]
+# Providers queried by default (when no prefix used)
+default = [
+  "desktopapplications",
+  "calc",
+  "runner",
+  "menus",
+  "websearch",
+]
+
+# Providers shown when search is empty
+empty = ["desktopapplications"]
+
+# Global max results (can be overridden per provider)
+max_results = 50

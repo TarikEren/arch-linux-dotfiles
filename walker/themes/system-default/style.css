@@ -1,0 +1,112 @@
+/* Color definitions */
+@define-color bg        #202020;
+@define-color fg        #d0d0d0;
+@define-color critical  #920202;
+@define-color accent    #54546d;
+
+/* Reset all styles */
+* {
+  all: unset;
+}
+
+/* Window wrapper */
+.box-wrapper {
+  background: @bg;
+  padding: 20px;
+  border: 1px solid darker(@accent);
+}
+
+/* Input field */
+.input {
+  caret-color: @fg;
+  background: lighter(@bg);
+  padding: 10px;
+  color: @fg;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+/* List items */
+.list {
+  color: @fg;
+}
+
+.item-box {
+  padding: 10px;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+  background: alpha(@accent, 0.25);
+}
+
+.item-text {
+  font-size: 14px;
+}
+
+.item-subtext {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.item-image,
+.item-image-text {
+  margin-right: 10px;
+}
+
+/* Quick activation labels */
+.item-quick-activation {
+  margin-left: 10px;
+  background: alpha(@accent, 0.25);
+  padding: 10px;
+}
+
+/* Placeholders */
+.placeholder,
+.elephant-hint {
+  color: @fg;
+  opacity: 0.5;
+}
+
+/* Keybinds display */
+.keybinds-wrapper {
+  border-top: 1px solid lighter(@bg);
+  font-size: 12px;
+  opacity: 0.5;
+  color: @fg;
+}
+
+.keybind-bind {
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+/* Error display */
+.error {
+  padding: 10px;
+  background: @bg;
+  color: @critical;
+}
+
+/* Preview pane */
+.preview {
+  border: 1px solid alpha(@accent, 0.25);
+  padding: 10px;
+  color: @fg;
+}
+
+/* Icon sizes */
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* Hide scrollbar */
+scrollbar {
+  opacity: 0;
+}
