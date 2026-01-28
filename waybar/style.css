@@ -1,7 +1,6 @@
-
 @define-color bg 	#202020;
 @define-color fg 	#d0d0d0;
-@define-color crit	#920202;
+@define-color critical	#920202;
 
 * {
 	border: none;
@@ -46,7 +45,7 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-	background: @crit;
+	background: @critical;
 	color: @bg;
 }
 
@@ -78,7 +77,7 @@ tooltip label {
 }
 
 #network.disabled, #network.disconnected {
-	color: @crit;
+	color: @critical;
 }
 
 #network.linked, #network.ethernet, #network.wifi {
