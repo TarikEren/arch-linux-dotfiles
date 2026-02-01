@@ -4,14 +4,13 @@ click_to_close = true           # Close when clicking outside content area
 selection_wrap = false          # Wrap list navigation at top/bottom
 disable_mouse = false           # Disable mouse on input and list
 debug = false                   # Enable debug output
-global_argument_delimiter = "#"     # Delimiter for passing arguments
-                                    # Example: firefox#https://example.com
-                                    # Part after # is passed as argument
+global_argument_delimiter = "#" # Delimiter for passing arguments
+hide_action_hints = true
 
-exact_search_prefix = "'"           # Prefix to disable fuzzy search
-                                    # Example: 'firefox will match exactly
-theme = "system-default"              # Theme name to use
-                               # Must exist in ~/.config/walker/themes/
+exact_search_prefix = "'" # Prefix to disable fuzzy search
+# Example: 'firefox will match exactly
+theme = "system-default" # Theme name to use
+# Must exist in ~/.config/walker/themes/
 [shell]
 anchor_top = true
 anchor_bottom = true
@@ -39,19 +38,13 @@ anchor_right = true
 close = ["Escape"]
 next = ["Down"]
 previous = ["Up"]
-toggle_exact = ["ctrl e"]           # Toggle exact search mode
-resume_last_query = ["ctrl r"]      # Resume last query (service mode)
-quick_activate = ["F1", "F2", "F3", "F4"]  # Quick activation keys
+toggle_exact = ["ctrl e"]                 # Toggle exact search mode
+resume_last_query = ["ctrl r"]            # Resume last query (service mode)
+quick_activate = ["F1", "F2", "F3", "F4"] # Quick activation keys
 
 [providers]
 # Providers queried by default (when no prefix used)
-default = [
-  "desktopapplications",
-  "calc",
-  "runner",
-  "menus",
-  "websearch",
-]
+default = ["desktopapplications", "calc", "runner", "menus", "websearch"]
 
 # Providers shown when search is empty
 empty = ["desktopapplications"]
