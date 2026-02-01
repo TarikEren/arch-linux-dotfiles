@@ -1,0 +1,26 @@
+@define-color bg #202020;
+@define-color fg #d0d0d0;
+
+/* Notification containers */
+.notification-background,
+.notification,
+.notification-row,
+.control-center,
+.notification-window {
+  border-radius: 0 ;
+  box-shadow: none ;    /* remove soft shadow that can look rounded */
+  background-clip: padding-box ; /* avoid shadow/anti-alias bleed */
+  background-color: @bg;
+  color: @fg;
+}
+
+.notification {
+  padding: 0.5em;
+}
+
+button,
+.action-button,
+.close-button,
+.buttons-grid button {
+  border-radius: 0;
+}
