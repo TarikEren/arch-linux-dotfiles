@@ -1,26 +1,21 @@
 #usr/bin/env bash
 
 # Constants
-SHUTDOWN="  Shutdown"
-RESTART="  Restart"
-LOCK="  Lock"
-HIBERNATE="󰤄  Hibernate"
+POWER="  Power"
+HEALTH="  Health"
 
-opt=$(echo -e "$SHUTDOWN\n$RESTART\n$LOCK\n$HIBERNATE" | walker --dmenu -H)
+opt=$(echo -e "$POWER\n$HEALTH" | walker --dmenu -H)
 
 case "$opt" in
-    "$SHUTDOWN")
-        hyprshutdown -t "Shutting down" --post-cmd "shutdown now";;
+"$POWER")
+  ~/.config/scripts/power-menu.sh
+  ;;
 
-    "$RESTART")
-        hyprshutdown -t "Restarting" --post-cmd "reboot";;
+"$HEALTH")
+  ~/.config/scripts/health-menu.sh
+  ;;
 
-    "$HIBERNATE")
-        echo "Hibernating";;
-
-    "$LOCK")
-        hyprlock;;
-
-    *)
-        exit 1;;
+*)
+  exit 1
+  ;;
 esac
