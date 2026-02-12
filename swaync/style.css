@@ -7,15 +7,27 @@
 .notification-row,
 .control-center,
 .notification-window {
-  border-radius: 0 ;
-  box-shadow: none ;    /* remove soft shadow that can look rounded */
-  background-clip: padding-box ; /* avoid shadow/anti-alias bleed */
+  border-radius: 0;
+  border: none;
   background-color: @bg;
   color: @fg;
 }
 
+.close-button {
+  background-color: @fg;
+  color: @bg;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin: 0.3em 0.5em 0.2em 0;
+  box-shadow: none;
+  border: none;
+  min-width: 1.5em;
+  min-height: 1.5em;
+}
+
 .notification {
-  padding: 0.5em;
+  padding: 0.2em;
 }
 
 button,
