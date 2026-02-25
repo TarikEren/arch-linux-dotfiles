@@ -124,3 +124,5 @@ function y() {
 }
 
 export EDITOR="nvim"
+
+. "$HOME/.local/bin/env"
