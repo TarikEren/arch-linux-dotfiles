@@ -26,12 +26,25 @@ tooltip label {
 }
 
 #workspaces {
-	margin: 0 0 0 0.75em;
+	margin: 0.5em 0 0 0.75em;
+}
+
+#network, #bluetooth, #custom-notification,
+#pulseaudio, #battery {
+	margin: 0.5em;
+}
+
+#tray {
+	margin: 0.5em;
+}
+
+#custom-notification {
+	font-size: 1.25em;
 }
 
 #workspaces button label {
 	padding: 0.5em;
-	margin: 0 0.25em 0 0.25em;
+	margin: 0 0.25em 0.5em 0.25em;
 }
 
 #workspaces button.empty {
@@ -47,28 +60,6 @@ tooltip label {
 #workspaces button.urgent {
 	background: @critical;
 	color: @bg;
-}
-
-#battery, #bluetooth, #workspaces,
-#clock, #pulseaudio, #network {
-	padding: 0.5em 0;
-}
-
-#custom-notification {
-	padding: 0.5em 0.75em 0.5em;
-}
-
-#custom-separator {
-	margin: 0.5em 0.25em;
-}
-
-#memory, #temperature, #custom-nvidia, #disk, #cpu {
-	padding: 0.5em 0;
-}
-
-#tray {
-	padding: 0.5em 0.75em 0.5em 0;
-	font-size: 1.25em;
 }
 
 #custom-menu {

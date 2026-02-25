@@ -123,5 +123,14 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+  "custom/menu": {
+    "format": "󰍜 ",
+    "tooltip-format": "Super menu",
+    "on-click": "~/.config/scripts/super-menu.sh"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
   }
 }
